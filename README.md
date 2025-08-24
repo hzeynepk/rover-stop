@@ -19,11 +19,27 @@ pip install -r requirements.txt
 
 ## Kullanım
 
+### Ana Program
 1. Test edilecek görüntüleri `img/` klasörüne yerleştirin
 2. Programı çalıştırın:
 ```bash
 python stop_sign_detector.py
 ```
+
+### Demo Programı
+İnteraktif demo için:
+```bash
+python demo.py
+```
+
+Demo menüsünden seçenekler:
+- **1**: Webcam ile canlı tespit (kameraya erişim gerekir)
+- **2**: Tüm görüntüleri işle (img klasöründeki tüm dosyalar)
+- **3**: Tek görüntü işle (dosya adı girmeniz gerekir)
+- **4**: Sonuçları görüntüle (results klasöründeki işlenmiş görüntüler)
+- **5**: Çıkış
+
+**Not**: Webcam özelliği için macOS'ta Terminal'e kamera erişim izni verilmesi gerekebilir (Sistem Tercihleri > Güvenlik ve Gizlilik > Kamera).
 
 ## Çıktılar
 
@@ -33,19 +49,7 @@ python stop_sign_detector.py
 
 ## Algoritma Detayları
 
-### Renk Tespiti
-- HSV renk uzayında kırmızı renk aralıkları kullanılır
-- İki farklı kırmızı aralığı (0-10° ve 170-180°) birleştirilir
-- Morfolojik işlemlerle gürültü azaltılır
 
-### Şekil Analizi
-- Kontur analizi ile şekiller tespit edilir
-- En boy oranı kontrolü (0.7-1.3 arası) ile kare/sekizgen şekiller filtrelenir
-- Minimum alan kontrolü ile küçük nesneler elenir
-
-### Konum Hesaplama
-- Bounding rectangle kullanılarak merkez koordinatları hesaplanır
-- Koordinatlar hem terminale yazdırılır hem de görüntü üzerine eklenir
 
 ## Dosya Yapısı
 
